@@ -1,0 +1,12 @@
+DEBUG = False
+ALLOWED_HOSTS = ['*']
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_paypal_tests',
+        'USER': 'patryk',
+        'PASSWORD': 'testpass',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}

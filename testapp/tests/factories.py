@@ -1,6 +1,9 @@
 """Payments factories file."""
+# 3rd-party
 import factory
 from factory import DjangoModelFactory
+
+# Project
 from testapp.models import PaypalResponse
 
 
@@ -9,7 +12,7 @@ def sequence(number):
     return {
        'txn_type': ['recurring_payment'],
        'mc_gross': ['0.07'],
-   }
+    }
 
 
 class PaypalResponseFactory(DjangoModelFactory):
@@ -17,5 +20,5 @@ class PaypalResponseFactory(DjangoModelFactory):
 
     response = factory.Sequence(sequence)
 
-    class Meta:
+    class Meta:  # noqa: D106
         model = PaypalResponse

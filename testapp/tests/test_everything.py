@@ -1,15 +1,16 @@
 """Test everything file."""
+# Django
 from django.test import TestCase
-
 from django.urls import reverse
 
+# Project
 from testapp.models import PaypalResponse
 
 
 class TestEverything(TestCase):
     """Payment tests."""
 
-    def setUp(self):
+    def setUp(self):  # noqa: D102
         pass
 
     def test_paypal_response_str_representation(self):

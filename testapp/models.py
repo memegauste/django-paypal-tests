@@ -9,9 +9,9 @@ class PaypalResponse(models.Model):
     response = models.JSONField('Paypal response')
     created_dt = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
+    def __str__(self):  # noqa: D105
         return f'Created at: {self.created_dt}'
 
-    class Meta:
+    class Meta:  # noqa: D106
         verbose_name = 'PayPal response'
         verbose_name_plural = 'PayPal responses'

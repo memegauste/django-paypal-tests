@@ -23,7 +23,7 @@
       </header>
 
       <main role="main" class="inner cover">
-        <div id="paypal-button-container-P-5X547708VH334312YMNETWWY"></div>
+        <div id="paypal-button-container-P-26A10677JC303004KMNET3KI"></div>
       </main>
 
       <footer class="mastfoot mt-auto">
@@ -33,25 +33,25 @@
       </footer>
     </div>
 
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="https://www.paypal.com/sdk/js?client-id=AVjPMmOoMefL8WM6ytUky76C0fV_TtAywiTMxmywvLk_xsprj3Csuwa6L93Ga4ciFNkqfTkgwfKVufaa&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>    <script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVjPMmOoMefL8WM6ytUky76C0fV_TtAywiTMxmywvLk_xsprj3Csuwa6L93Ga4ciFNkqfTkgwfKVufaa&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <script>
       paypal.Buttons({
           style: {
               shape: 'pill',
-              color: 'black',
+              color: 'blue',
               layout: 'vertical',
               label: 'subscribe'
           },
           createSubscription: function(data, actions) {
             return actions.subscription.create({
               /* Creates the subscription */
-              plan_id: 'P-5X547708VH334312YMNETWWY'
+              plan_id: 'P-26A10677JC303004KMNET3KI'
             });
           },
           onApprove: function(data, actions) {
             alert(data.subscriptionID); // You can add optional success message for the subscriber here
           }
-      }).render('#paypal-button-container-P-5X547708VH334312YMNETWWY'); // Renders the PayPal button
+      }).render('#paypal-button-container-P-26A10677JC303004KMNET3KI'); // Renders the PayPal button
     </script>
   </body>
 </html>

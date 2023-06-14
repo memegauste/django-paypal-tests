@@ -1,6 +1,6 @@
 -r requirements.txt
 
-codecov==2.0.22
+codecov==2.1.13
 coloredlogs==14.0
 coverage==5.0.4
 factory_boy==2.8.1

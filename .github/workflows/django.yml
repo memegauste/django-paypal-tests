@@ -3,26 +3,43 @@ name: Django CI
 on:
   push:
     branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       max-parallel: 4
       matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.12', '3.13', '3.14', '3.15']
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v7
       with:
         python-version: ${{ matrix.python-version }}
+        cache: pip
+        cache-dependency-path: |
+          requirements.txt
+          requirements_dev.txt
     - name: Install Dependencies
       run: |
-        pip --disable-pip-version-check install --no-compile -r requirements_dev.txt
+        python -m pip install --upgrade pip
+        python -m pip install -r requirements_dev.txt
+        python -m pip check
     - name: Run Flake8
       run: |
-        flake8 .
-        python manage.py test
+        python -m flake8 .
+    - name: Check Django configuration and migrations
+      run: |
+        python manage.py check
+        python manage.py makemigrations --check --dry-run
+    - name: Run tests with coverage
+      run: python -m pytest --cov=project --cov=testapp --cov-report=term-missing

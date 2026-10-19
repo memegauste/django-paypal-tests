@@ -1,6 +1,6 @@
 """Testapp views file."""
 # Standard Library
-import urllib
+from urllib.parse import parse_qs
 
 # Django
 from django.http import HttpResponse
@@ -20,7 +20,7 @@ class TestPaypalView(TemplateView):
 @csrf_exempt
 def paypal_ipn(request):
     """Paypal instant notification view."""
-    uncleaned_request_data = urllib.parse.parse_qs(
+    uncleaned_request_data = parse_qs(
         request.POST.urlencode(),
         keep_blank_values=True,
     )

@@ -10,3 +10,8 @@ imports/
 logs/
 peruccy-docker
 peruccy-docker.pub
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml

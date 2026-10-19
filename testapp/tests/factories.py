@@ -1,7 +1,7 @@
 """Payments factories file."""
 # 3rd-party
 import factory
-from factory import DjangoModelFactory
+from factory.django import DjangoModelFactory
 
 # Project
 from testapp.models import PaypalResponse
@@ -10,8 +10,8 @@ from testapp.models import PaypalResponse
 def sequence(number):
     """Return a sequence."""
     return {
-       'txn_type': ['recurring_payment'],
-       'mc_gross': ['0.07'],
+        'txn_type': ['recurring_payment'],
+        'mc_gross': ['0.07'],
     }
 
 
